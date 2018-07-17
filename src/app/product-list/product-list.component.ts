@@ -24,10 +24,12 @@ export class ProductListComponent implements OnInit {
   showImage: boolean = false;
   _listFilter = '';
   get listFilter(): string {
+    console.log(this._listFilter)
     return this._listFilter;
   }
   set listFilter(value: string) {
     this._listFilter = value;
+    console.log(this._listFilter)
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
@@ -56,6 +58,10 @@ export class ProductListComponent implements OnInit {
     }
   ];
 
+
+  onRatingClicked(message: string):void{
+    this.pageTitle = 'Product List: '+message;
+  }
 
 
   toggleImage(): void {
